@@ -9,4 +9,17 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_github">GITHUB</string>
+    <string name="label_twitter">TWITTER</string>
+    <string name="label_linkedin">LINKEDIN</string>
+    <string name="label_about_header">This is a challenge by ardejob community</string>
+    <string name="label_save">save</string>
+    <string name="hint_word_in_english">word in english</string>
+    <string name="label_add_your_language">Add your language</string>
+    <string name="hint_word_in_your_language">word in your language</string>
+    <string name="label_type_here">type here</string>
+    <string name="label_switch_keyboard">Switch keyboard</string>
+    <string name="label_home_header">English Language translator</string>
 </resources>
