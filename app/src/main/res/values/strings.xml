@@ -22,4 +22,7 @@
     <string name="label_type_here">type here</string>
     <string name="label_switch_keyboard">Switch keyboard</string>
     <string name="label_home_header">English Language translator</string>
+    <string name="label_update">Update</string>
+    <string name="label_delete">delete</string>
+    <string name="error_empty_input">input invalid</string>
 </resources>

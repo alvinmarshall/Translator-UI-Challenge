@@ -8,6 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:id="@+id/root"
         android:layout_height="wrap_content">
 
         <TextView
@@ -37,6 +38,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_header">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_item_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/et_curve_bg"
@@ -55,6 +57,7 @@
             app:layout_constraintTop_toBottomOf="@id/item_1">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_item_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/et_curve_bg"
