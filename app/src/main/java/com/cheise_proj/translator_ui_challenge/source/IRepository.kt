@@ -9,6 +9,8 @@ interface IRepository<T> {
 
     suspend fun save(data: T)
 
+    suspend fun saveList(dataList: List<T>)
+
     suspend fun update(data: T)
 
     suspend fun delete(data: T)

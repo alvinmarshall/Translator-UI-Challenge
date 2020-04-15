@@ -45,5 +45,12 @@ class LanguageRepositoryImpl constructor(application: Application) :
         }
     }
 
+    override suspend fun saveList(dataList: List<LanguageEntity>) {
+        withContext(Dispatchers.IO){
+            println("saving dataList...")
+            languageDao.saveLanguageList(dataList)
+        }
+    }
+
 
 }

@@ -3,6 +3,7 @@ package com.cheise_proj.translator_ui_challenge.ui.language
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.speech.tts.TextToSpeech
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,11 +23,14 @@ import com.cheise_proj.translator_ui_challenge.ui.add_language.AddLanguageActivi
 import com.cheise_proj.translator_ui_challenge.ui.language.adapter.LanguageAdapter
 import kotlinx.android.synthetic.main.saved_language_fragment.*
 import org.jetbrains.anko.support.v4.toast
+import timber.log.Timber
+import java.util.*
 
 class SavedLanguageFragment : Fragment() {
 
     private lateinit var viewModel: SavedLanguageViewModel
     private lateinit var adapter: LanguageAdapter
+    private lateinit var textToSpeech: TextToSpeech
 
     companion object {
         fun newInstance() =
@@ -46,6 +50,16 @@ class SavedLanguageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         configViewModel()
+        initTextToSpeech()
+    }
+
+    private fun initTextToSpeech() {
+        textToSpeech = TextToSpeech(requireContext()) {
+            if (it == TextToSpeech.SUCCESS) {
+                Timber.i("Initialize success")
+            }
+        }
+        textToSpeech.language = Locale.FRENCH
     }
 
     private fun initRecyclerView() {
@@ -58,7 +72,7 @@ class SavedLanguageFragment : Fragment() {
 
                         }
                         LanguageACTION.PLAY -> {
-                            toast("play")
+                            playText(data.first)
 
                         }
                     }
@@ -69,6 +83,14 @@ class SavedLanguageFragment : Fragment() {
         recycler_view.apply {
             hasFixedSize()
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        }
+    }
+
+    private fun playText(entity: LanguageEntity) {
+        val status = textToSpeech.speak(entity.itemTwo, TextToSpeech.QUEUE_FLUSH, null, null)
+        if (status == TextToSpeech.ERROR) {
+            toast("can't convert text to speech")
+            Timber.e("Error converting text")
         }
     }
 
@@ -96,6 +118,11 @@ class SavedLanguageFragment : Fragment() {
 
     private fun hideProgress(view: View) {
         view.visibility = View.GONE
+    }
+
+    override fun onPause() {
+        super.onPause()
+        textToSpeech.stop()
     }
 
 

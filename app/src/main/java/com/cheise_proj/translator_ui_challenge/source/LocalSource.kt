@@ -5,6 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.cheise_proj.translator_ui_challenge.common.getBioInfo
+import com.cheise_proj.translator_ui_challenge.common.getDefaultAlphabet
 import com.cheise_proj.translator_ui_challenge.model.BioEntity
 import com.cheise_proj.translator_ui_challenge.model.LanguageEntity
 
@@ -31,24 +33,23 @@ abstract class LocalSource : RoomDatabase() {
             .addCallback(object : Callback() {
                 override fun onCreate(db: SupportSQLiteDatabase) {
                     super.onCreate(db)
-                    Thread(Runnable { populateBio(getInstance(context)) }).start()
+                    Thread(Runnable {
+                        populateBio(getInstance(context))
+                        populateInitialLanguage(getInstance(context))
+                    }).start()
                 }
             })
             .build()
 
+        private fun populateInitialLanguage(db: LocalSource) {
+            db.runInTransaction {
+                db.languageDao().saveLanguageList(getDefaultAlphabet())
+            }
+        }
+
         private fun populateBio(db: LocalSource) {
             println("populate bio")
-            db.bioDao().insertBio(
-                BioEntity(
-                    "Kelvin Birikorang",
-                    "Mobile Application Engineer",
-                    "https://github.com/Bik-Krlvn",
-                    "https://twitter.com/bik_cheise",
-                    "http://linkedin.com/in/kelvin-birikorang-699289179",
-                    "https://avatars3.githubusercontent.com/u/21101827?s=460&u=0513c8ae79e89892eef2c293d4b72ca588affb85&v=4",
-                    "Hey developers, I'm Kelvin from Ghana working at Infordas Ghana Limited"
-                )
-            )
+            db.bioDao().insertBio(getBioInfo())
         }
 
 

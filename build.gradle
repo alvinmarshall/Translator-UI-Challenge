@@ -17,6 +17,9 @@ buildscript {
         glide_version = '4.11.0'
         //anko version
         anko_version = '0.10.8'
+
+        //leak canary
+        leak_canary = 'leakcanary-android:2.2'
     }
     repositories {
         google()
