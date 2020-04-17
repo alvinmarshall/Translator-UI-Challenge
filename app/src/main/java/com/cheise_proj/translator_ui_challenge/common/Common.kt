@@ -8,7 +8,7 @@ enum class LanguageACTION {
 }
 
 const val LANGUAGE_IDENTIFIER_EXTRA = "identifier_key"
-const val DELAY_MILLI: Long = 200
+const val DELAY_MILLI: Long = 500
 
 fun getBioInfo(): BioEntity {
     return BioEntity(

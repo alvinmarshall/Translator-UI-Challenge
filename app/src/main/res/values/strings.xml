@@ -19,4 +19,8 @@
     <string name="label_update">Update</string>
     <string name="label_delete">delete</string>
     <string name="error_empty_input">input invalid</string>
+
+    <!--    CUSTOM KEYBOARD-->
+    <string name="simple_ime">French IME</string>
+    <string name="subtype_fr_Fr">French (Fr)</string>
 </resources>
