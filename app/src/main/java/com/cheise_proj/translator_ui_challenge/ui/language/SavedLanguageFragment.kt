@@ -125,5 +125,11 @@ class SavedLanguageFragment : Fragment() {
         textToSpeech.stop()
     }
 
+    override fun onStop() {
+        super.onStop()
+        textToSpeech.stop()
+        textToSpeech.shutdown()
+    }
+
 
 }
