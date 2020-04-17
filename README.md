@@ -38,7 +38,7 @@ Check their twitter handle https://twitter.com/ardejob
 
 ## APK File
 
-[![file](./img/ic_launcher.png)](https://github.com/Bik-Krlvn/Spiice-ui-challenge/raw/develop/apk/spiice.apk "download translator apk")
+[![file](./img/ic_launcher.png)](https://github.com/Bik-Krlvn/Translator-UI-Challenge/raw/develop/apk/translator.apk "download translator apk")
 
 ## App Screenshots
 
