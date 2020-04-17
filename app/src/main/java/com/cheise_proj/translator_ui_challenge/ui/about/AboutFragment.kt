@@ -3,6 +3,8 @@ package com.cheise_proj.translator_ui_challenge.ui.about
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.cheise_proj.translator_ui_challenge.R
+import com.cheise_proj.translator_ui_challenge.common.DELAY_MILLI
 import com.cheise_proj.translator_ui_challenge.common.GlideApp
 import com.cheise_proj.translator_ui_challenge.model.BioEntity
 import com.google.android.material.snackbar.Snackbar
@@ -83,7 +86,8 @@ class AboutFragment : Fragment() {
 
     private fun configViewModel() {
         viewModel = ViewModelProvider(this)[AboutViewModel::class.java]
-        subscribeObserver()
+        val handler = Handler(Looper.getMainLooper())
+        handler.postDelayed({subscribeObserver()}, DELAY_MILLI)
     }
 
     private fun subscribeObserver() {

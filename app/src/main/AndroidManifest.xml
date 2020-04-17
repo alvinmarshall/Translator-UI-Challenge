@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.cheise_proj.translator_ui_challenge">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".App"
@@ -13,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".ui.add_language.AddLanguageActivity" android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.add_language.AddLanguageActivity"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -24,6 +27,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <!--        CUSTOM KEYBOARD SERVICE-->
+        <service
+            android:name=".service.CustomKeyboardIME"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_INPUT_METHOD">
+
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/method" />
+
+            <intent-filter>
+
+                <action android:name="android.view.InputMethod" />
+
+            </intent-filter>
+
+        </service>
     </application>
 
 </manifest>
