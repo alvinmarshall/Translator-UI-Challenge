@@ -12,10 +12,10 @@ Check their twitter handle https://twitter.com/ardejob
 * [x] Dark theme
 * [ ] Firebase Crashlytics **my quota limit reached**
 * [x] Leak canary2
-* [x] A-Z alphabet 
 
 ## Translated Language
 * [x] French
+* [x] A-Z alphabet 
 
 ## Code Language
 * [x] Kotlin
@@ -31,5 +31,6 @@ Check their twitter handle https://twitter.com/ardejob
 * [x] AddLanguageFragment
 * [x] HomeFragment
 * [x] SavedLanguages
+* [x] AboutFragment
 
 
